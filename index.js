@@ -21,10 +21,10 @@ module.exports = async function browse(token, guildID) {
 
 	async function move(dir) {
 		if (dir === 'click') await page.mouse.click(x, y);
-		if (dir === 'up' && y <= 1080) await page.mouse.move(x, y - mouseModifier), y -= mouseModifier;
-		if (dir === 'down' && y <= 1080) await page.mouse.move(x, y + mouseModifier), y += mouseModifier;
-		if (dir === 'left' && x <= 1920) await page.mouse.move(x - mouseModifier, y), x -= mouseModifier;
-		if (dir === 'right' && x <= 1920) await page.mouse.move(x + mouseModifier, y), x += mouseModifier;
+		if (dir === 'up' && y <= 600) await page.mouse.move(x, y - mouseModifier), y -= mouseModifier;
+		if (dir === 'down' && y <= 600) await page.mouse.move(x, y + mouseModifier), y += mouseModifier;
+		if (dir === 'left' && x <= 800) await page.mouse.move(x - mouseModifier, y), x -= mouseModifier;
+		if (dir === 'right' && x <= 800) await page.mouse.move(x + mouseModifier, y), x += mouseModifier;
 	}
 	async function update(int, messageObject) {
 		const screenshot = await page.screenshot();
@@ -37,8 +37,8 @@ module.exports = async function browse(token, guildID) {
 		page = await browser.newPage();
 
 		await page.setViewport({
-			width: 1920,
-			height: 1080,
+			width: 800,
+			height: 600,
 		});
 
 		await plugin(page);
